@@ -6,6 +6,9 @@ from builtins import str
 import logging
 
 from PIL import Image
+from pkg_resources import parse_version
+if parse_version(Image.__version__)>=parse_version('10.0.0'):
+    Image.ANTIALIAS=Image.LANCZOS
 import PIL.ImageOps, PIL.ImageChops
 
 from brother_ql.raster import BrotherQLRaster
